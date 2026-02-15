@@ -4,7 +4,7 @@ export const personalInfo = {
     bio: "J'ai 15 ans. Je développe des applications iOS natives ainsi que des sites et applications web performantes.",
     email: "charlypolley28@gmail.com",
     twitter: "https://x.com/charly_polley?s=21",
-    github: "https://github.com/charlypolley", // Assuming github handle
+    github: "https://github.com/charlytechluxe",
     available: true
 };
 
