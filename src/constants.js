@@ -46,11 +46,12 @@ export const myApps = [
         slug: "sprayhub",
         name: "SprayHub",
         category: "Sport & Escalade",
-        description: "L'outil ultime pour la gestion de spraywalls d'escalade et de voies de bloc.",
-        fullDescription: "SprayHub révolutionne la gestion des murs d'escalade de type 'spraywall'. Créez, partagez et modérez des blocs facilement via une interface PWA performante couplée à un backend robuste.",
-        features: ["Création de blocs", "Système de modération", "Mode Poster/Impression", "Synchronisation temps réel"],
-        tech: ["React", "FastAPI / Node", "PostgreSQL", "Tailwind CSS"],
-        color: "bg-orange-600",
-        tag: "Climbing Beta"
+        description: "L'outil ultime pour la gestion de spraywalls et le suivi de progression en escalade.",
+        fullDescription: "SprayHub révolutionne la grimpe sur spraywall. Conçu avec une approche 'mobile-first' et une esthétique sombre ultra-léchée, il permet aux grimpeurs de créer des blocs complexes, de suivre leurs 'croix' et de visualiser leur progression via un dashboard d'entraînement intuitif.",
+        features: ["Éditeur de blocs immersif", "Dashboard d'entraînement", "Explorateur communautaire", "Système de gradation Soft/Hard"],
+        tech: ["React", "Tailwind CSS", "Framer Motion", "PostgreSQL"],
+        screenshots: ["/assets/sprayhub/home.png", "/assets/sprayhub/explorer.png", "/assets/sprayhub/editor.png", "/assets/sprayhub/training.png"],
+        color: "bg-[#ff0055]",
+        tag: "Climbing Performance"
     }
 ];
