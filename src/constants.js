@@ -20,30 +20,6 @@ export const awards = [
 
 export const myApps = [
     {
-        slug: "lunar-vca",
-        name: "Lunar VCA",
-        category: "Finance & Crypto",
-        description: "Un tracker d'investissement minimaliste et premium inspiré par l'esthétique Apple.",
-        fullDescription: "Lunar VCA est un outil d'aide à la décision pour les investisseurs utilisant la stratégie Value Cost Averaging. Avec un Smart Advisor intelligent, des graphiques de trajectoire et un ticker BTC en temps réel, il offre une expérience de suivi de portefeuille fluide et haut de gamme.",
-        features: ["Smart Advisor", "Calculateur VCA", "Graphiques de trajectoire", "Ticker BTC live"],
-        tech: ["HTML5", "CSS3", "JavaScript", "Chart.js"],
-        screenshots: ["/assets/lunar-vca/home.png", "/assets/lunar-vca/advisor.png"],
-        color: "bg-orange-500",
-        tag: "Premium Analytics"
-    },
-    {
-        slug: "twingo-control-center",
-        name: "Twingo Control Center",
-        category: "Automobile & Dashboard",
-        description: "L'application de gestion ultime pour ta Twingo (carburant, entretien, stats).",
-        fullDescription: "Twingo Control Center est une application iOS native conçue pour centraliser toutes les données de ton véhicule. Suis ta consommation de carburant, planifie tes entretiens et visualise tes dépenses via des graphiques détaillés, le tout dans une interface respectant les codes de design d'Apple.",
-        features: ["Suivi carburant", "Planning entretien", "Analytique dépenses", "Interface iOS Native"],
-        tech: ["SwiftUI", "SwiftData", "Charts"],
-        screenshots: ["/assets/twingo/dashboard.png", "/assets/twingo/fuel.png"],
-        color: "bg-blue-500",
-        tag: "iOS Native"
-    },
-    {
         slug: "navo",
         name: "Navo",
         category: "Mobilité",
