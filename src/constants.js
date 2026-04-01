@@ -5,6 +5,7 @@ export const personalInfo = {
     email: "charlypolley28@gmail.com",
     twitter: "https://x.com/charly_polley?s=21",
     github: "https://github.com/charlytechluxe",
+    avatar: "/assets/profil.PNG",
     available: true
 };
 
@@ -50,7 +51,7 @@ export const myApps = [
         fullDescription: "SprayHub révolutionne la grimpe sur spraywall. Conçu avec une approche 'mobile-first' et une esthétique sombre ultra-léchée, il permet aux grimpeurs de créer des blocs complexes, de suivre leurs 'croix' et de visualiser leur progression via un dashboard d'entraînement intuitif.",
         features: ["Éditeur de blocs immersif", "Dashboard d'entraînement", "Explorateur communautaire", "Système de gradation Soft/Hard"],
         tech: ["React", "Tailwind CSS", "Framer Motion", "PostgreSQL"],
-        screenshots: ["/assets/sprayhub/home.png", "/assets/sprayhub/explorer.png", "/assets/sprayhub/editor.png", "/assets/sprayhub/training.png"],
+        screenshots: ["/assets/sprayhub/home.PNG", "/assets/sprayhub/explorer.PNG", "/assets/sprayhub/editor.PNG", "/assets/sprayhub/training.PNG", "/assets/sprayhub/discover.PNG"],
         color: "bg-[#ff0055]",
         tag: "Climbing Performance"
     }
