@@ -20,15 +20,15 @@ export const awards = [
 
 export const myApps = [
     {
-        slug: "flowpark",
-        name: "FlowPark",
+        slug: "navo",
+        name: "Navo",
         category: "Mobilité",
-        description: "Données de stationnement en temps réel pour Rennes et Laval.",
-        fullDescription: "FlowPark est une solution innovante permettant d'agréger et de visualiser les données de stationnement en temps réel via les API Open Data. L'application offre une vue précise des places disponibles, aidant à fluidifier le trafic urbain.",
-        features: ["Données temps réel", "Cartographie interactive", "Filtres intelligents", "Support multicatégories"],
+        description: "Solution de navigation intelligente avec données de stationnement en temps réel.",
+        fullDescription: "Navo est une solution innovante permettant d'agréger et de visualiser les données de stationnement et de mobilité en temps réel. L'application offre une vue précise des places disponibles et des services urbains, aidant à fluidifier le trafic et à réduire l'empreinte carbone.",
+        features: ["Données temps réel", "Cartographie intelligente", "Filtres éco-mobilité", "Support multi-villes"],
         tech: ["SwiftUI", "Open Data APIs", "Async/Await"],
         color: "bg-emerald-600",
-        tag: "Data & IoT"
+        tag: "Smart Mobility"
     },
     {
         slug: "iverse",
