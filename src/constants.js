@@ -11,9 +11,9 @@ export const personalInfo = {
 export const awards = [
     {
         title: "Swift Student Challenge",
-        year: "2026",
-        status: "PARTICIPANT",
-        description: "En route pour l'édition 2026 du concours mondial d'Apple.",
+        year: "2027",
+        status: "EN PRÉPARATION",
+        description: "Après une première participation en 2026, je me prépare déjà pour l'édition 2027 du concours mondial d'Apple.",
         color: "from-amber-400 to-orange-600"
     }
 ];
