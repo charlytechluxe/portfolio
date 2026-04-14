@@ -36,7 +36,7 @@ export const myApps = [
         slug: "iverse",
         name: "Iverse",
         category: "Éducation & Écosystème",
-        description: "Un musée numérique interactif explorant l'héritage et l'innovation d'Apple.",
+        description: "Mon app du Swift Stundent challenge 2026 : Un musée numérique interactif explorant l'héritage et l'innovation d'Apple.",
         fullDescription: "Iverse est né du constat que l'écosystème Apple est devenu immense et complexe. À l'intersection de la technologie et des arts libéraux, cette application transforme une base de données froide en une expérience vivante. C'est un véritable musée numérique permettant d'explorer l'évolution du design via une Timeline immersive, tout en guidant les utilisateurs grâce à un algorithme de recommandation intelligent.",
         features: ["Timeline 3D (History)", "Smart Recommender", "Magic Scan 3D (RealityKit)", "Système de Badges (Gamification)"],
         tech: ["SwiftUI Canvas", "Object Capture (RealityKit)", "3D Transforms", "GeometryReader"],
@@ -52,7 +52,7 @@ export const myApps = [
         fullDescription: "SprayHub révolutionne la grimpe sur spraywall. Conçu avec une approche 'mobile-first' et une esthétique sombre ultra-léchée, il permet aux grimpeurs de créer des blocs complexes, de suivre leurs 'croix' et de visualiser leur progression via un dashboard d'entraînement intuitif.",
         features: ["Éditeur de blocs immersif", "Dashboard d'entraînement", "Explorateur communautaire", "Système de gradation Soft/Hard"],
         tech: ["React", "Tailwind CSS", "Framer Motion", "PostgreSQL"],
-        screenshots: ["/assets/sprayhub/home.PNG", "/assets/sprayhub/explorer.PNG", "/assets/sprayhub/editor.PNG", "/assets/sprayhub/training.PNG", "/assets/sprayhub/discover.PNG"],
+        screenshots: ["/assets/sprayhub/home.png", "/assets/sprayhub/explorer.png", "/assets/sprayhub/editor.png", "/assets/sprayhub/training.png", "/assets/sprayhub/discover.png"],
         color: "bg-[#ff0055]",
         tag: "Climbing Performance"
     }
