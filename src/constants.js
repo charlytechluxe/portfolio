@@ -28,6 +28,7 @@ export const myApps = [
         fullDescription: "Navo est une solution innovante permettant d'agréger et de visualiser les données de stationnement et de mobilité en temps réel. L'application offre une vue précise des places disponibles et des services urbains, aidant à fluidifier le trafic et à réduire l'empreinte carbone.",
         features: ["Données temps réel", "Cartographie intelligente", "Filtres éco-mobilité", "Support multi-villes"],
         tech: ["SwiftUI", "Open Data APIs", "Async/Await"],
+        screenshots: ["/assets/navo/navo-map.png", "/assets/navo/navo-filters.png", "/assets/navo/navo-impact.png", "/assets/navo/navo-help.png"],
         color: "bg-emerald-600",
         tag: "Smart Mobility"
     },
