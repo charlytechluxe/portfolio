@@ -84,9 +84,16 @@ const AppDetail = () => {
                                     <motion.div
                                         key={idx}
                                         whileHover={{ y: -10 }}
-                                        className="min-w-[240px] md:min-w-[280px] h-[480px] md:h-[580px] rounded-[2rem] md:rounded-[2.5rem] border-[6px] md:border-[8px] border-neutral-800 shadow-2xl overflow-hidden bg-black snap-center flex-shrink-0"
+                                        className="min-w-[260px] md:min-w-[300px] aspect-[9/19.5] rounded-[2.5rem] md:rounded-[3.2rem] border-[8px] md:border-[14px] border-neutral-900 shadow-2xl overflow-hidden bg-black snap-center flex-shrink-0 relative"
                                     >
-                                        <img src={src} alt={`${app.name} screenshot ${idx + 1}`} className="w-full h-full object-cover" />
+                                        {/* Dynamic Island */}
+                                        <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-20 border border-white/5" />
+                                        
+                                        <img 
+                                            src={src} 
+                                            alt={`${app.name} screenshot ${idx + 1}`} 
+                                            className="w-full h-full object-cover object-top" 
+                                        />
                                     </motion.div>
                                 ))}
                             </div>
