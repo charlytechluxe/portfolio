@@ -25,9 +25,9 @@ const MainLayout = () => {
 
     return (
         <div className="min-h-screen bg-neutral-950 text-white font-sans selection:bg-indigo-500/30 overflow-x-hidden">
-            {/* Custom Cursor / Ambient Light */}
+            {/* Custom Cursor / Ambient Light - Hidden on Mobile */}
             <div
-                className="fixed pointer-events-none z-0 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px] transition-transform duration-300 ease-out"
+                className="hidden md:block fixed pointer-events-none z-0 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px] transition-transform duration-300 ease-out"
                 style={{
                     background: 'radial-gradient(circle, rgba(120,119,198,0.3) 0%, transparent 70%)',
                     left: mousePosition.x - 250,

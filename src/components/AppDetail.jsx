@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { myApps } from '../constants';
-import { ArrowLeft, Smartphone, Code2, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Smartphone, Code2, CheckCircle2, ExternalLink, Github, Download } from 'lucide-react';
 
 const AppDetail = () => {
     const { slug } = useParams();
@@ -62,10 +62,32 @@ const AppDetail = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg md:text-2xl text-neutral-400 max-w-3xl leading-relaxed"
+                        className="text-lg md:text-2xl text-neutral-400 max-w-3xl leading-relaxed mb-8"
                     >
                         {app.fullDescription}
                     </motion.p>
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex flex-wrap gap-4"
+                    >
+                        {app.appStoreLink && (
+                            <a href={app.appStoreLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-neutral-200 transition-colors">
+                                <Download size={20} /> Télécharger sur l'App Store
+                            </a>
+                        )}
+                        {app.websiteLink && (
+                            <a href={app.websiteLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-colors">
+                                <ExternalLink size={20} /> Visiter le site
+                            </a>
+                        )}
+                        {app.githubLink && (
+                            <a href={app.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-colors">
+                                <Github size={20} /> Code source
+                            </a>
+                        )}
+                    </motion.div>
                 </header>
 
                 {/* Detail Grid */}

@@ -30,7 +30,9 @@ export const myApps = [
         tech: ["SwiftUI", "Open Data APIs", "Async/Await"],
         screenshots: ["/assets/navo/navo-map.png", "/assets/navo/navo-filters.png", "/assets/navo/navo-impact.png", "/assets/navo/navo-help.png"],
         color: "bg-emerald-600",
-        tag: "Smart Mobility"
+        tag: "Smart Mobility",
+        appStoreLink: "https://apps.apple.com/app/id1234567890",
+        websiteLink: "https://navo-app.com"
     },
     {
         slug: "iverse",
@@ -42,7 +44,8 @@ export const myApps = [
         tech: ["SwiftUI Canvas", "Object Capture (RealityKit)", "3D Transforms", "GeometryReader"],
         screenshots: ["/assets/iverse/home.png", "/assets/iverse/settings.png"],
         color: "bg-blue-600",
-        tag: "Swift Student Challenge"
+        tag: "Swift Student Challenge",
+        githubLink: "https://github.com/charlytechluxe/iverse"
     },
     {
         slug: "sprayhub",
@@ -54,6 +57,8 @@ export const myApps = [
         tech: ["React", "Tailwind CSS", "Framer Motion", "PostgreSQL"],
         screenshots: ["/assets/sprayhub/home.png", "/assets/sprayhub/explorer.png", "/assets/sprayhub/editor.png", "/assets/sprayhub/training.png", "/assets/sprayhub/discover.png"],
         color: "bg-[#ff0055]",
-        tag: "Climbing Performance"
+        tag: "Climbing Performance",
+        websiteLink: "https://sprayhub.app",
+        githubLink: "https://github.com/charlytechluxe/sprayhub"
     }
 ];

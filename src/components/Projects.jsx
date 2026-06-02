@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ArrowUpRight, Github, Twitter, Mail, Award, Layers,
-    Code2, Sparkles, Smartphone
+    Code2, Sparkles, Smartphone, FileText
 } from 'lucide-react';
 import { awards, myApps, personalInfo } from '../constants';
 
@@ -83,7 +83,7 @@ const Projects = () => {
                 </div>
             </Card>
 
-            {/* Socials */}
+            {/* Socials & CV */}
             <Card className="md:col-span-1 md:row-span-1 p-6 flex flex-col justify-center gap-4">
                 <div className="flex justify-between items-center">
                     <h3 className="text-lg font-semibold text-neutral-200">Me Contacter</h3>
@@ -94,17 +94,18 @@ const Projects = () => {
                     <SocialIcon icon={<Github size={18} />} href={personalInfo.github} />
                     <SocialIcon icon={<Mail size={18} />} href={`mailto:${personalInfo.email}`} />
                 </div>
+                <a href="/assets/CV.pdf" target="_blank" rel="noopener noreferrer" className="mt-2 text-sm text-center py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors border border-white/10 flex items-center justify-center gap-2 text-white">
+                    <FileText size={16} /> Télécharger mon CV
+                </a>
             </Card>
 
-            {/* Stats */}
-            <Card className="md:col-span-1 md:row-span-1 p-6 flex items-center justify-between group">
-                <div>
-                    <div className="text-4xl font-bold text-white group-hover:text-amber-400 transition-colors">100%</div>
-                    <div className="text-xs text-neutral-500 uppercase tracking-wider font-semibold mt-1">Passion & Mindset</div>
-                </div>
-                <div className="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5">
-                    <Sparkles className="text-yellow-200" size={20} />
-                </div>
+            {/* About Me */}
+            <Card className="md:col-span-1 md:row-span-1 p-6 flex flex-col justify-center group relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5" />
+                <h3 className="text-lg font-semibold text-neutral-200 mb-2 relative z-10">À propos</h3>
+                <p className="text-xs text-neutral-400 leading-relaxed relative z-10">
+                    Passionné par l'écosystème tech depuis mon plus jeune âge, j'allie un design exigeant à un code performant pour créer des produits complets et mémorables, de l'idée au déploiement.
+                </p>
             </Card>
 
             {/* App Showcase Slider */}
