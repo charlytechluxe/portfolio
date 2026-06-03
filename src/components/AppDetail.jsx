@@ -31,7 +31,13 @@ const AppDetail = () => {
             {/* Background decoration */}
             <div className={`fixed inset-0 bg-gradient-to-b opacity-5 dark:opacity-10 pointer-events-none transition-colors duration-1000 ${app.color.replace('bg-', 'from-')}`} />
 
-            <main className="max-w-6xl mx-auto px-4 py-24 relative z-10">
+            <motion.main 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50, transition: { duration: 0.3 } }}
+                transition={{ duration: 0.5 }}
+                className="max-w-6xl mx-auto px-4 py-24 relative z-10"
+            >
                 {/* Back Button */}
                 <motion.button
                     initial={{ opacity: 0, x: -20 }}
@@ -175,7 +181,7 @@ const AppDetail = () => {
                     </motion.div>
 
                 </div>
-            </main>
+            </motion.main>
         </div>
     );
 };

@@ -4,11 +4,12 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import AppDetail from './components/AppDetail';
 import NotFound from './components/NotFound';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { personalInfo } from './constants';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Sun, Moon, Globe } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 const MainLayout = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -70,11 +71,17 @@ const MainLayout = () => {
 
             {/* Scroll indicator */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-50"
+                className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-50 shadow-[0_0_10px_rgba(99,102,241,0.5)]"
                 style={{ scaleX }}
             />
 
-            <main className="max-w-6xl mx-auto px-4 py-8 md:py-24 relative z-10">
+            <motion.main 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20, transition: { duration: 0.3 } }}
+                transition={{ duration: 0.5 }}
+                className="max-w-6xl mx-auto px-4 py-24 relative z-10"
+            >
                 <Hero />
                 <Projects />
 
@@ -86,8 +93,21 @@ const MainLayout = () => {
                         <a href={`mailto:${personalInfo.email}`} className="hover:text-black dark:hover:text-white transition-colors">Contact</a>
                     </div>
                 </footer>
-            </main>
+            </motion.main>
         </div>
+    );
+};
+
+const AnimatedRoutes = () => {
+    const location = useLocation();
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<MainLayout />} />
+                <Route path="/app/:slug" element={<AppDetail />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </AnimatePresence>
     );
 };
 
@@ -96,11 +116,7 @@ function App() {
         <ThemeProvider>
             <LanguageProvider>
                 <Router>
-                    <Routes>
-                        <Route path="/" element={<MainLayout />} />
-                        <Route path="/app/:slug" element={<AppDetail />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
+                    <AnimatedRoutes />
                 </Router>
             </LanguageProvider>
         </ThemeProvider>
