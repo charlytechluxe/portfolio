@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { myApps } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowLeft, Smartphone, Code2, CheckCircle2, ExternalLink, Github, Download } from 'lucide-react';
+import { ArrowLeft, Smartphone, Code2, CheckCircle2, ExternalLink, Github, Download, Quote } from 'lucide-react';
 
 const AppDetail = () => {
     const { slug } = useParams();
@@ -159,6 +159,36 @@ const AppDetail = () => {
                             ))}
                         </div>
                     </motion.div>
+
+                    {/* Testimonial / Industry Recognition */}
+                    {app.testimonial && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.45 }}
+                            className="md:col-span-3 glass p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] relative overflow-hidden group"
+                        >
+                            {/* Decorative background element */}
+                            <div className={`absolute -right-20 -top-20 w-64 h-64 rounded-full blur-3xl opacity-20 ${app?.color || 'bg-indigo-500'} transition-transform duration-700 group-hover:scale-150 pointer-events-none`} />
+                            
+                            <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start md:items-center">
+                                <div className="p-4 bg-black/5 dark:bg-white/10 rounded-2xl">
+                                    <Quote size={40} className="text-neutral-900 dark:text-white" />
+                                </div>
+                                <div className="flex-1 space-y-4">
+                                    <p className="text-lg md:text-xl font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed italic">
+                                        "{t(app.testimonial.quote)}"
+                                    </p>
+                                    <div>
+                                        <p className="font-bold text-neutral-900 dark:text-white">{app.testimonial.author}</p>
+                                        <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
+                                            {app.testimonial.role} <span className="mx-1">•</span> {app.testimonial.company}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
 
                     {/* Key Features */}
                     <motion.div

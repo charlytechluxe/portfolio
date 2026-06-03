@@ -98,7 +98,16 @@ export const myApps = [
         color: "bg-[#ff0055]",
         tag: { fr: "Climbing Performance", en: "Climbing Performance" },
         websiteLink: "https://sprayhub.app",
-        githubLink: "https://github.com/charlytechluxe/sprayhub"
+        githubLink: "https://github.com/charlytechluxe/sprayhub",
+        testimonial: {
+            quote: {
+                fr: "Votre projet SprayHub est impressionnant, notamment pour votre âge. Nous serions avec plaisir ouvert à échanger sur d'autres sujets ou opportunités où votre expertise pourrait être utile.",
+                en: "Your SprayHub project is impressive, especially for your age. We would gladly be open to discussing other topics or opportunities where your expertise could be useful."
+            },
+            author: "Dylan Aubert",
+            role: "CEO Weclimb",
+            company: "Weclimb"
+        }
     },
     {
         slug: "twingocontrol",
