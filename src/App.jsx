@@ -5,11 +5,13 @@ import Projects from './components/Projects';
 import AppDetail from './components/AppDetail';
 import NotFound from './components/NotFound';
 import { CommandMenu } from './components/CommandMenu';
+import { TerminalEasterEgg } from './components/Terminal';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { personalInfo } from './constants';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
-import { Sun, Moon, Globe } from 'lucide-react';
+import { SoundProvider, useSound } from './context/SoundContext';
+import { Sun, Moon, Globe, Volume2, VolumeX } from 'lucide-react';
 
 const MainLayout = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -22,6 +24,7 @@ const MainLayout = () => {
     
     const { theme, toggleTheme } = useTheme();
     const { language, toggleLanguage, t } = useLanguage();
+    const { isMuted, toggleMute, playClick, playSwitch } = useSound();
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -36,27 +39,46 @@ const MainLayout = () => {
             {/* Top right floating controls */}
             <div className="fixed top-6 right-6 z-50 flex gap-3 items-center">
                 <button 
-                    onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
+                    onClick={() => {
+                        playClick();
+                        document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }));
+                    }}
                     className="hidden md:flex items-center gap-2 px-3 h-10 rounded-full bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 hover:bg-white dark:hover:bg-neutral-800 transition-colors text-xs font-medium text-neutral-500 dark:text-neutral-400"
                 >
                     <span className="flex items-center gap-1"><kbd className="font-sans">⌘</kbd> K</span>
                 </button>
                 <button 
-                    onClick={toggleLanguage}
+                    onClick={() => {
+                        playClick();
+                        toggleMute();
+                    }}
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-neutral-900 shadow-lg border border-black/5 dark:border-white/10 hover:scale-110 transition-transform text-neutral-600 dark:text-neutral-400"
+                >
+                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                </button>
+                <button 
+                    onClick={() => {
+                        playSwitch();
+                        toggleLanguage();
+                    }}
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-neutral-900 shadow-lg border border-black/5 dark:border-white/10 hover:scale-110 transition-transform text-xs font-bold"
                 >
                     {language === 'fr' ? 'EN' : 'FR'}
                 </button>
                 <button 
-                    onClick={toggleTheme}
+                    onClick={() => {
+                        playSwitch();
+                        toggleTheme();
+                    }}
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-neutral-900 shadow-lg border border-black/5 dark:border-white/10 hover:scale-110 transition-transform"
                 >
                     {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
             </div>
 
-            {/* Command Menu (Spotlight) */}
+            {/* Command Menu (Spotlight) & Terminal */}
             <CommandMenu />
+            <TerminalEasterEgg />
 
             {/* Custom Cursor / Ambient Light - Hidden on Mobile */}
             <div
@@ -124,9 +146,11 @@ function App() {
     return (
         <ThemeProvider>
             <LanguageProvider>
-                <Router>
-                    <AnimatedRoutes />
-                </Router>
+                <SoundProvider>
+                    <Router>
+                        <AnimatedRoutes />
+                    </Router>
+                </SoundProvider>
             </LanguageProvider>
         </ThemeProvider>
     )

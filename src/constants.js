@@ -51,7 +51,8 @@ export const myApps = [
         color: "bg-emerald-600",
         tag: { fr: "Acquis (iOS) 🤝", en: "Acquired (iOS) 🤝" },
         appStoreLink: "https://apps.apple.com/app/id1234567890",
-        websiteLink: "https://navo-app.com"
+        websiteLink: "https://navo-app.com",
+        video: null
     },
     {
         slug: "iverse",
@@ -73,7 +74,8 @@ export const myApps = [
         screenshots: ["/assets/iverse/home.png", "/assets/iverse/settings.png"],
         color: "bg-blue-600",
         tag: { fr: "Swift Student Challenge", en: "Swift Student Challenge" },
-        githubLink: "https://github.com/charlytechluxe/iverse"
+        githubLink: "https://github.com/charlytechluxe/iverse",
+        video: null
     },
     {
         slug: "sprayhub",
