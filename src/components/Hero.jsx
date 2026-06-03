@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { personalInfo } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { ScrollRevealText } from './ScrollRevealText';
 
 const Hero = () => {
     const { t } = useLanguage();
@@ -20,14 +21,17 @@ const Hero = () => {
             >
                 {t(personalInfo.role)}
             </motion.h1>
-            <motion.p
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl leading-relaxed"
+                className="max-w-2xl"
             >
-                {t(personalInfo.bio)}
-            </motion.p>
+                <ScrollRevealText 
+                    text={t(personalInfo.bio)}
+                    className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium"
+                />
+            </motion.div>
         </header>
     );
 };

@@ -48,3 +48,74 @@ body {
         scrollbar-width: none;
     }
 }
+
+/* CMDK Global Styles */
+[cmdk-root] {
+    max-width: 640px;
+    width: 100%;
+    background: var(--cmdk-bg, rgba(255, 255, 255, 0.8));
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 16px 70px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--cmdk-border, rgba(0, 0, 0, 0.1));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.dark [cmdk-root] {
+    --cmdk-bg: rgba(23, 23, 23, 0.7);
+    --cmdk-border: rgba(255, 255, 255, 0.1);
+}
+
+[cmdk-input] {
+    width: 100%;
+    font-size: 18px;
+    padding: 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    border-bottom: 1px solid var(--cmdk-border, rgba(0, 0, 0, 0.1));
+}
+
+[cmdk-list] {
+    height: 300px;
+    overflow: auto;
+    padding: 8px;
+}
+
+[cmdk-item] {
+    content-visibility: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--cmdk-item-text, #333);
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.dark [cmdk-item] {
+    --cmdk-item-text: #a1a1aa;
+}
+
+[cmdk-item][data-selected="true"] {
+    background: var(--cmdk-item-active-bg, rgba(0, 0, 0, 0.05));
+    color: var(--cmdk-item-active-text, #000);
+}
+
+.dark [cmdk-item][data-selected="true"] {
+    --cmdk-item-active-bg: rgba(255, 255, 255, 0.1);
+    --cmdk-item-active-text: #fff;
+}
+
+[cmdk-group-heading] {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cmdk-item-text, #888);
+}

@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import AppDetail from './components/AppDetail';
 import NotFound from './components/NotFound';
+import { CommandMenu } from './components/CommandMenu';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { personalInfo } from './constants';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
@@ -33,7 +34,13 @@ const MainLayout = () => {
     return (
         <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-white font-sans selection:bg-indigo-500/30 overflow-x-hidden transition-colors duration-500">
             {/* Top right floating controls */}
-            <div className="fixed top-6 right-6 z-50 flex gap-3">
+            <div className="fixed top-6 right-6 z-50 flex gap-3 items-center">
+                <button 
+                    onClick={() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', metaKey: true }))}
+                    className="hidden md:flex items-center gap-2 px-3 h-10 rounded-full bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 hover:bg-white dark:hover:bg-neutral-800 transition-colors text-xs font-medium text-neutral-500 dark:text-neutral-400"
+                >
+                    <span className="flex items-center gap-1"><kbd className="font-sans">⌘</kbd> K</span>
+                </button>
                 <button 
                     onClick={toggleLanguage}
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-neutral-900 shadow-lg border border-black/5 dark:border-white/10 hover:scale-110 transition-transform text-xs font-bold"
@@ -47,6 +54,9 @@ const MainLayout = () => {
                     {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                 </button>
             </div>
+
+            {/* Command Menu (Spotlight) */}
+            <CommandMenu />
 
             {/* Custom Cursor / Ambient Light - Hidden on Mobile */}
             <div
