@@ -9,7 +9,6 @@ import { personalInfo } from './constants';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Sun, Moon, Globe } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 const MainLayout = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
