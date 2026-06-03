@@ -76,11 +76,11 @@ const Projects = () => {
 
             {/* Award Card */}
             <SpotlightCard className="md:col-span-1 md:row-span-2 group h-[380px] md:h-auto overflow-hidden">
-                <div className={`absolute inset-0 bg-gradient-to-br ${awards[0].color} opacity-5 dark:opacity-10 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-500 z-0 pointer-events-none`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${awards[0]?.color} opacity-5 dark:opacity-10 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-500 z-0 pointer-events-none`} />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer z-0 pointer-events-none" />
 
                 <div className="p-6 h-full flex flex-col items-center justify-center text-center space-y-6 relative z-10">
-                    <div className={`w-24 h-24 rounded-full bg-gradient-to-tr ${awards[0].color} flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.2)] dark:shadow-[0_0_30px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform duration-500 border-4 border-white/50 dark:border-black/20`}>
+                    <div className={`w-24 h-24 rounded-full bg-gradient-to-tr ${awards[0]?.color} flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.2)] dark:shadow-[0_0_30px_rgba(245,158,11,0.3)] group-hover:scale-110 transition-transform duration-500 border-4 border-white/50 dark:border-black/20`}>
                         <Award className="text-white drop-shadow-md" size={48} />
                     </div>
                     <div>
@@ -147,18 +147,18 @@ const Projects = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.8 }}
-                        className={`absolute inset-0 ${myApps[currentAppIndex].color} flex flex-col z-10 overflow-hidden`}
+                        className={`absolute inset-0 ${myApps[currentAppIndex]?.color} flex flex-col z-10 overflow-hidden`}
                     >
                         {/* Image or Video Background */}
                         <div className="absolute inset-0 w-full h-full">
                             <img
-                                src={myApps[currentAppIndex].images[0] || myApps[currentAppIndex].screenshots?.[0] || ''}
-                                alt={myApps[currentAppIndex].name}
-                                className={`w-full h-full object-cover transition-opacity duration-700 ${isHoveringSlider && myApps[currentAppIndex].video ? 'opacity-0' : 'opacity-100'}`}
+                                src={myApps[currentAppIndex]?.images?.[0] || myApps[currentAppIndex]?.screenshots?.[0] || ''}
+                                alt={myApps[currentAppIndex]?.name}
+                                className={`w-full h-full object-cover transition-opacity duration-700 ${isHoveringSlider && myApps[currentAppIndex]?.video ? 'opacity-0' : 'opacity-100'}`}
                             />
-                            {myApps[currentAppIndex].video && (
+                            {myApps[currentAppIndex]?.video && (
                                 <video
-                                    src={myApps[currentAppIndex].video}
+                                    src={myApps[currentAppIndex]?.video}
                                     loop
                                     muted
                                     playsInline
@@ -171,7 +171,7 @@ const Projects = () => {
                         {/* App Info Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 p-8 flex flex-col justify-end pointer-events-none">
                             <div className="flex items-center gap-2 mb-2">
-                                <span className={`w-2 h-2 rounded-full ${myApps[currentAppIndex].color}`} />
+                                <span className={`w-2 h-2 rounded-full ${myApps[currentAppIndex]?.color}`} />
                                 <span className="text-xs font-bold text-white uppercase tracking-widest drop-shadow-md">
                                     {t(myApps[currentAppIndex].tag) || "Featured App"}
                                 </span>

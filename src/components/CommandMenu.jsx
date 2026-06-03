@@ -76,7 +76,7 @@ export const CommandMenu = () => {
                                             key={app.slug} 
                                             onSelect={() => runCommand(() => navigate(`/app/${app.slug}`))}
                                         >
-                                            <Smartphone size={16} className={app.color.replace('bg-', 'text-')} />
+                                            <Smartphone size={16} className={app?.color?.replace('bg-', 'text-') || 'text-neutral-500'} />
                                             {app.name} - {t(app.category)}
                                         </Command.Item>
                                     ))}

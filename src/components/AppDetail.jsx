@@ -29,7 +29,7 @@ const AppDetail = () => {
     return (
         <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-white font-sans selection:bg-indigo-500/30 transition-colors duration-500">
             {/* Background decoration */}
-            <div className={`fixed inset-0 bg-gradient-to-b opacity-5 dark:opacity-10 pointer-events-none transition-colors duration-1000 ${app.color.replace('bg-', 'from-')}`} />
+            <div className={`fixed inset-0 bg-gradient-to-b opacity-5 dark:opacity-10 pointer-events-none transition-colors duration-1000 ${app?.color?.replace('bg-', 'from-') || 'from-neutral-500'}`} />
 
             <motion.main 
                 initial={{ opacity: 0, x: 50 }}
@@ -129,7 +129,7 @@ const AppDetail = () => {
                             </div>
                         ) : (
                             <div className="aspect-video flex items-center justify-center relative">
-                                <div className={`absolute inset-0 opacity-10 dark:opacity-20 ${app.color}`} />
+                                <div className={`absolute inset-0 opacity-10 dark:opacity-20 ${app?.color || 'bg-neutral-500'}`} />
                                 <div className="relative z-10 flex flex-col items-center gap-4 text-center p-8">
                                     <Smartphone size={80} className="text-neutral-300 dark:text-white/20" />
                                     <span className="text-neutral-500 font-mono text-sm uppercase tracking-widest">
