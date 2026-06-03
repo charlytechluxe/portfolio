@@ -6,12 +6,14 @@
 
 body {
     font-family: var(--font-family);
-    @apply bg-neutral-950 text-white antialiased;
+    @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-white antialiased transition-colors duration-500;
 }
 
 .glass {
-    @apply bg-neutral-900/60 border border-white/5 backdrop-blur-md hover:border-white/10 transition-all duration-300;
+    @apply bg-white/70 dark:bg-neutral-900/60 border border-black/5 dark:border-white/5 backdrop-blur-md hover:border-black/10 dark:hover:border-white/10 transition-all duration-300;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer utilities {
     .fade-in-up {
