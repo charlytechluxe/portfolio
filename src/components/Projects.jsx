@@ -49,7 +49,7 @@ const Projects = () => {
     }, [isHoveringSlider]);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:auto-rows-[180px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:auto-rows-[minmax(180px,auto)]">
 
             {/* Tech Stack */}
             <SpotlightCard className="md:col-span-2 md:row-span-2 p-6 md:p-8 flex flex-col justify-between group h-[380px] md:h-auto">
@@ -128,79 +128,74 @@ const Projects = () => {
             </SpotlightCard>
 
             {/* App Showcase Slider */}
-            <SpotlightCard className="md:col-span-2 md:row-span-2 group relative h-[450px] md:h-auto overflow-hidden p-0">
-                <div 
-                    className="absolute inset-0 z-20"
-                    onMouseEnter={() => { setIsHoveringSlider(true); playHover(); }}
-                    onMouseLeave={() => setIsHoveringSlider(false)}
-                    onClick={() => navigate(`/app/${myApps[currentAppIndex].slug}`)}
-                    style={{ cursor: 'pointer' }}
-                />
-                
-                {/* Slider Background Layer */}
-                <div className="absolute inset-0 bg-neutral-50 dark:bg-neutral-900 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800 transition-colors duration-500 z-0" />
-
+            <SpotlightCard className="md:col-span-2 md:row-span-2 group relative h-[450px] md:h-auto overflow-hidden p-0" onMouseEnter={() => { setIsHoveringSlider(true); playHover(); }} onMouseLeave={() => setIsHoveringSlider(false)}>
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentAppIndex}
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className={`absolute inset-0 ${myApps[currentAppIndex]?.color} flex flex-col z-10 overflow-hidden`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0 z-10 p-8 h-full flex flex-col justify-between"
                     >
-                        {/* Image or Video Background */}
-                        <div className="absolute inset-0 w-full h-full">
-                            <img
-                                src={myApps[currentAppIndex]?.images?.[0] || myApps[currentAppIndex]?.screenshots?.[0] || ''}
-                                alt={myApps[currentAppIndex]?.name}
-                                className={`w-full h-full object-cover transition-opacity duration-700 ${isHoveringSlider && myApps[currentAppIndex]?.video ? 'opacity-0' : 'opacity-100'}`}
-                            />
-                            {myApps[currentAppIndex]?.video && (
-                                <video
-                                    src={myApps[currentAppIndex]?.video}
-                                    loop
-                                    muted
-                                    playsInline
-                                    autoPlay={isHoveringSlider}
-                                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isHoveringSlider ? 'opacity-100' : 'opacity-0'}`}
-                                />
-                            )}
+                        <div className="flex justify-between items-start">
+                            <div>
+                                <div className="flex items-center gap-2 mb-1">
+                                    <span className={`w-2 h-2 rounded-full ${myApps[currentAppIndex]?.color}`} />
+                                    <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+                                        {t(myApps[currentAppIndex]?.tag) || "Featured App"}
+                                    </span>
+                                </div>
+                                <h3 className="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white">{myApps[currentAppIndex]?.name}</h3>
+                                <p className="text-neutral-600 dark:text-neutral-400 text-xs md:text-sm mt-2 max-w-xs">{t(myApps[currentAppIndex]?.description)}</p>
+                            </div>
+                            <button
+                                onClick={() => navigate(`/app/${myApps[currentAppIndex]?.slug}`)}
+                                className="bg-neutral-900 text-white dark:bg-white dark:text-black px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors flex items-center gap-2 whitespace-nowrap shadow-lg"
+                            >
+                                {language === 'fr' ? 'Voir' : 'View'} <ArrowUpRight size={14} />
+                            </button>
                         </div>
 
-                        {/* App Info Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 p-8 flex flex-col justify-end pointer-events-none">
-                            <div className="flex items-center gap-2 mb-2">
-                                <span className={`w-2 h-2 rounded-full ${myApps[currentAppIndex]?.color}`} />
-                                <span className="text-xs font-bold text-white uppercase tracking-widest drop-shadow-md">
-                                    {t(myApps[currentAppIndex].tag) || "Featured App"}
-                                </span>
-                            </div>
-                            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg">{myApps[currentAppIndex].name}</h3>
-                            <p className="text-white/90 font-medium mb-6 max-w-sm drop-shadow-md">{t(myApps[currentAppIndex].category)}</p>
-                            
-                            <div className="flex gap-3 items-center pointer-events-auto relative z-30">
-                                <span className="px-3 py-1.5 bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold text-white shadow-lg">
-                                    {t(myApps[currentAppIndex].status)}
-                                </span>
-                                <button
-                                    onClick={(e) => { e.stopPropagation(); navigate(`/app/${myApps[currentAppIndex].slug}`); }}
-                                    className="bg-white text-black px-4 py-1.5 rounded-full text-xs font-bold hover:bg-neutral-200 transition-colors flex items-center gap-2 shadow-lg"
-                                >
-                                    {language === 'fr' ? 'Voir' : 'View'} <ArrowUpRight size={14} />
-                                </button>
+                        {/* App Icon/Device Context */}
+                        <div className="mt-4 md:mt-6 flex justify-center translate-y-16 md:translate-y-12 md:group-hover:translate-y-6 transition-transform duration-500">
+                            <div className="w-48 h-64 md:w-56 md:h-72 bg-neutral-100 dark:bg-black rounded-t-[2rem] md:rounded-t-[2.5rem] border-[4px] md:border-[6px] border-white dark:border-neutral-700 shadow-2xl relative overflow-hidden">
+                                <div className={`absolute inset-0 opacity-10 dark:opacity-20 ${myApps[currentAppIndex]?.color}`} />
+                                
+                                {/* Background Image inside device */}
+                                <div className="absolute inset-0 w-full h-full opacity-40 dark:opacity-30 mix-blend-overlay">
+                                    <img
+                                        src={myApps[currentAppIndex]?.images?.[0] || myApps[currentAppIndex]?.screenshots?.[0] || ''}
+                                        alt={myApps[currentAppIndex]?.name}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center z-10">
+                                    <div className={`w-16 h-16 rounded-2xl ${myApps[currentAppIndex]?.color} mb-4 shadow-2xl flex items-center justify-center`}>
+                                        <Smartphone className="text-white" size={32} />
+                                    </div>
+                                    <span className="text-neutral-600 dark:text-white/80 text-[10px] font-mono tracking-widest uppercase font-bold">
+                                        {t(myApps[currentAppIndex]?.category)}
+                                    </span>
+                                </div>
+                                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-5 bg-neutral-300 dark:bg-black rounded-full z-20" />
                             </div>
                         </div>
                     </motion.div>
                 </AnimatePresence>
 
+                {/* Slider Background Layer */}
+                <div className="absolute inset-0 bg-neutral-50 dark:bg-neutral-900 group-hover:bg-neutral-100 dark:group-hover:bg-neutral-800 transition-colors duration-500" />
+
                 {/* Slider Controls */}
-                <div className="absolute top-6 right-6 z-30 flex gap-2">
+                <div className="absolute bottom-6 right-8 z-30 flex gap-2">
                     {myApps.map((_, idx) => (
                         <button
                             key={idx}
-                            onClick={(e) => { e.stopPropagation(); setCurrentAppIndex(idx); }}
-                            className={`h-1.5 rounded-full transition-all duration-300 shadow-md ${currentAppIndex === idx ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'}`}
+                            onClick={() => setCurrentAppIndex(idx)}
+                            className={`h-1.5 rounded-full transition-all duration-300 ${currentAppIndex === idx ? 'w-6 bg-neutral-800 dark:bg-white' : 'w-1.5 bg-neutral-300 dark:bg-white/20 hover:bg-neutral-400 dark:hover:bg-white/40'
+                                }`}
                         />
                     ))}
                 </div>
