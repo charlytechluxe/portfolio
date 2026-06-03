@@ -60,5 +60,41 @@ export const myApps = [
         tag: "Climbing Performance",
         websiteLink: "https://sprayhub.app",
         githubLink: "https://github.com/charlytechluxe/sprayhub"
+    },
+    {
+        slug: "twingocontrol",
+        name: "TwingoControl",
+        category: "Automobile & Audio",
+        description: "Simulateur Active Sound Design (ASD) & OBD2 temps réel pour iOS.",
+        fullDescription: "Application native Swift qui génère des sons de moteurs virtuels ultra-réalistes synchronisés avec la télémétrie OBD2 Bluetooth du véhicule. Elle intègre un moteur physique reproduisant parfaitement la Renault Twingo III et une synthèse audio dynamique (Alpine A110 S, concept Apple Car EV) via AVFoundation. L'interface offre un design Glassmorphism premium avec Power Meter et haptique.",
+        features: ["Télémétrie OBD2 Bluetooth", "Synthèse audio temps réel", "Moteur physique embarqué", "Interface Glassmorphism"],
+        tech: ["Swift", "SwiftUI", "AVFoundation"],
+        screenshots: null,
+        color: "bg-orange-600",
+        tag: "Engineering & Sound"
+    },
+    {
+        slug: "vcatracker",
+        name: "VCATracker",
+        category: "Finance & Tracking",
+        description: "Investment tracker avec une esthétique premium Apple Bank style.",
+        fullDescription: "Une application web de suivi des investissements conçue avec une interface ultra-premium inspirée de l'écosystème financier d'Apple (comme l'Apple Card). L'accent est mis sur une visualisation claire et élégante des données financières.",
+        features: ["Suivi d'investissements", "UI Apple Bank Style", "Visualisation de données", "Dashboard premium"],
+        tech: ["React", "Web UI", "Tailwind CSS"],
+        screenshots: null,
+        color: "bg-slate-800",
+        tag: "Fintech"
+    },
+    {
+        slug: "devflowhub",
+        name: "DevFlowHub",
+        category: "SaaS & Productivité",
+        description: "Outil professionnel de gestion de projet (PWA & Desktop).",
+        fullDescription: "Une solution SaaS complète et multi-tenant conçue pour la gestion de projets professionnels. Déployable sous forme de Progressive Web App (PWA) et d'application bureau (Electron), DevFlowHub vise à optimiser les flux de travail des équipes.",
+        features: ["Architecture PWA", "App Bureau Electron", "Support Multi-tenant", "Gestion de workflows"],
+        tech: ["React", "Electron", "PWA"],
+        screenshots: null,
+        color: "bg-purple-600",
+        tag: "SaaS B2B"
     }
 ];
