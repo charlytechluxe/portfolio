@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import AppDetail from './components/AppDetail';
+import NotFound from './components/NotFound';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { personalInfo } from './constants';
 
@@ -66,6 +67,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainLayout />} />
                 <Route path="/app/:slug" element={<AppDetail />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     )
